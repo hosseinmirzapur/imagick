@@ -3,7 +3,7 @@ package imagick
 import "github.com/h2non/bimg"
 
 func Watermark(path string, wmConf bimg.Watermark) error {
-	buff, err := readFile(path)
+	buff, err := ReadFile(path)
 	if err != nil {
 		return err
 	}
@@ -13,7 +13,7 @@ func Watermark(path string, wmConf bimg.Watermark) error {
 		return err
 	}
 
-	err = saveFile(newImage, path)
+	err = SaveFile(newImage, path)
 	if err != nil {
 		return err
 	}

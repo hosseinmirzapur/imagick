@@ -5,7 +5,7 @@ import (
 )
 
 func Rotate(path string, rotate bimg.Angle) error {
-	buffer, err := readFile(path)
+	buffer, err := ReadFile(path)
 	if err != nil {
 		return err
 	}
@@ -15,7 +15,7 @@ func Rotate(path string, rotate bimg.Angle) error {
 		return err
 	}
 
-	err = saveFile(newImage, path)
+	err = SaveFile(newImage, path)
 	if err != nil {
 		return err
 	}

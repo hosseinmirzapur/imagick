@@ -3,7 +3,7 @@ package imagick
 import "github.com/h2non/bimg"
 
 func Crop(path string, width, height int) error {
-	buff, err := readFile(path)
+	buff, err := ReadFile(path)
 	if err != nil {
 		return err
 	}
@@ -13,7 +13,7 @@ func Crop(path string, width, height int) error {
 		return err
 	}
 
-	err = saveFile(newImage, path)
+	err = SaveFile(newImage, path)
 	if err != nil {
 		return err
 	}

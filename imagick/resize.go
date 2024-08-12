@@ -5,7 +5,7 @@ import (
 )
 
 func Resize(path string, width, height int) error {
-	buff, err := readFile(path)
+	buff, err := ReadFile(path)
 	if err != nil {
 		return err
 	}
@@ -20,7 +20,7 @@ func Resize(path string, width, height int) error {
 		return err
 	}
 
-	err = saveFile(newImage, path)
+	err = SaveFile(newImage, path)
 	if err != nil {
 		return err
 	}
@@ -29,7 +29,7 @@ func Resize(path string, width, height int) error {
 }
 
 func ForceResize(path string, width, height int) error {
-	buff, err := readFile(path)
+	buff, err := ReadFile(path)
 	if err != nil {
 		return err
 	}
@@ -39,7 +39,7 @@ func ForceResize(path string, width, height int) error {
 		return err
 	}
 
-	err = saveFile(newImage, path)
+	err = SaveFile(newImage, path)
 	if err != nil {
 		return err
 	}

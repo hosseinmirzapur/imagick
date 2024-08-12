@@ -5,7 +5,7 @@ import (
 )
 
 func ToFormat(path string, format bimg.ImageType) error {
-	buff, err := readFile(path)
+	buff, err := ReadFile(path)
 	if err != nil {
 		return err
 	}
@@ -15,7 +15,7 @@ func ToFormat(path string, format bimg.ImageType) error {
 		return err
 	}
 
-	err = saveFile(newImage, path)
+	err = SaveFile(newImage, path)
 	if err != nil {
 		return err
 	}

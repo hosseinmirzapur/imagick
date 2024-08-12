@@ -3,7 +3,7 @@ package imagick
 import "github.com/h2non/bimg"
 
 func Interpret(path string, intrprt bimg.Interpretation) error {
-	buff, err := readFile(path)
+	buff, err := ReadFile(path)
 	if err != nil {
 		return err
 	}
@@ -13,7 +13,7 @@ func Interpret(path string, intrprt bimg.Interpretation) error {
 		return err
 	}
 
-	err = saveFile(newImage, path)
+	err = SaveFile(newImage, path)
 	if err != nil {
 		return err
 	}
