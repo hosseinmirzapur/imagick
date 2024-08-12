@@ -2,7 +2,6 @@ package imagick
 
 import (
 	"fmt"
-	"time"
 
 	"github.com/h2non/bimg"
 )
@@ -23,10 +22,9 @@ func Resize(path string, width, height int) error {
 		return fmt.Errorf("unable to resize image properly\n")
 	}
 
-	savePath := fmt.Sprintf("%d.%s", time.Now().UnixMicro(), extension(path))
-	err = bimg.Write(savePath, newImage)
+	err = saveFile(newImage, path)
 	if err != nil {
-		return fmt.Errorf("unable to write to specified path\n")
+		return err
 	}
 
 	return nil
@@ -43,10 +41,9 @@ func ForceResize(path string, width, height int) error {
 		return fmt.Errorf("unable to resize image")
 	}
 
-	savePath := fmt.Sprintf("%d.%s", time.Now().UnixMicro(), extension(path))
-	err = bimg.Write(savePath, newImage)
+	err = saveFile(newImage, path)
 	if err != nil {
-		return fmt.Errorf("unable to write to specified path")
+		return err
 	}
 
 	return nil
