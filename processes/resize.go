@@ -31,6 +31,20 @@ func resize(path string, width, height int) {
 	}
 }
 
-func forceResize() {
+func forceResize(path string, width, height int) {
+	buffer, err := bimg.Read(path)
+	if err != nil {
+		log.Fatalln("unable to find the path specified")
+	}
 
+	newImage, err := bimg.NewImage(buffer).Resize(width, height)
+	if err != nil {
+		log.Fatalln("unable to resize image")
+	}
+
+	savePath := fmt.Sprintf("%d.%s", time.Now().UnixMicro(), extension(path))
+	err = bimg.Write(savePath, newImage)
+	if err != nil {
+		log.Fatalln("unable to write to specified path")
+	}
 }
