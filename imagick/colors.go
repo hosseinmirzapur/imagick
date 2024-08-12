@@ -2,7 +2,7 @@ package imagick
 
 import "github.com/h2non/bimg"
 
-func Interpretate(path string, intrprt bimg.Interpretation) error {
+func Interpret(path string, intrprt bimg.Interpretation) error {
 	buff, err := readFile(path)
 	if err != nil {
 		return err
