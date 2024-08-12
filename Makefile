@@ -9,3 +9,6 @@ deps:
 
 test:
 	@go test -cover ./...
+
+clean:
+	@rm -f ./tests/*.txt ./tests/*.png ./tests/*.jpg
