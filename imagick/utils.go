@@ -1,4 +1,4 @@
-package processes
+package imagick
 
 import "path/filepath"
 
