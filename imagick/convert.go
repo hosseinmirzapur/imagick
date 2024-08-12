@@ -7,9 +7,9 @@ import (
 )
 
 func ToFormat(path string, format bimg.ImageType) error {
-	buff, err := bimg.Read(path)
+	buff, err := readFile(path)
 	if err != nil {
-		return fmt.Errorf("unable to find the file in the path provided\n")
+		return err
 	}
 
 	newImage, err := bimg.NewImage(buff).Convert(format)

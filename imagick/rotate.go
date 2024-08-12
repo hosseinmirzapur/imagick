@@ -8,9 +8,9 @@ import (
 )
 
 func Rotate(path string, rotate bimg.Angle) error {
-	buffer, err := bimg.Read(path)
+	buffer, err := readFile(path)
 	if err != nil {
-		return fmt.Errorf("cannot find the file in the specified path\n")
+		return err
 	}
 
 	newImage, err := bimg.NewImage(buffer).Rotate(rotate)

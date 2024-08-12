@@ -7,12 +7,12 @@ import (
 )
 
 func Resize(path string, width, height int) error {
-	buffer, err := bimg.Read(path)
+	buff, err := readFile(path)
 	if err != nil {
-		return fmt.Errorf("unable to find the path specified\n")
+		return err
 	}
 
-	newImage, err := bimg.NewImage(buffer).Resize(width, height)
+	newImage, err := bimg.NewImage(buff).Resize(width, height)
 	if err != nil {
 		return fmt.Errorf("unable to resize image\n")
 	}
@@ -31,12 +31,12 @@ func Resize(path string, width, height int) error {
 }
 
 func ForceResize(path string, width, height int) error {
-	buffer, err := bimg.Read(path)
+	buff, err := readFile(path)
 	if err != nil {
-		return fmt.Errorf("unable to find the path specified")
+		return err
 	}
 
-	newImage, err := bimg.NewImage(buffer).ForceResize(width, height)
+	newImage, err := bimg.NewImage(buff).ForceResize(width, height)
 	if err != nil {
 		return fmt.Errorf("unable to resize image")
 	}
