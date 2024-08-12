@@ -1,16 +1,14 @@
 package imagick
 
-import (
-	"github.com/h2non/bimg"
-)
+import "github.com/h2non/bimg"
 
-func ToFormat(path string, format bimg.ImageType) error {
+func Crop(path string, width, height int) error {
 	buff, err := readFile(path)
 	if err != nil {
 		return err
 	}
 
-	newImage, err := bimg.NewImage(buff).Convert(format)
+	newImage, err := bimg.NewImage(buff).Crop(width, height, bimg.GravitySmart)
 	if err != nil {
 		return err
 	}
