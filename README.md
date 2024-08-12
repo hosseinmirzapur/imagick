@@ -22,6 +22,13 @@ make deps
 make run
 ```
 
+## Test
+
+Full test of the project by running:
+
+```bash
+make test
+```
 
 ## Issues or contributions
 
